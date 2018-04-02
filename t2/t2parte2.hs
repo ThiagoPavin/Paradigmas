@@ -16,4 +16,9 @@ isBin str
   | str == "" = False
   | tamanho str == 1 = verifica (head str)
   | tamanho str > 1 = isBin (tail str)
-  
+
+--2. Reescreva a função acima de forma não-recursiva. Dê outro nome para ela, por exemplo isBin'. Aqui você pode usar quaisquer funções auxiliares pré-definidas em Haskell.
+
+isBin' :: String -> Bool
+isBin' "" = False
+isBin' str = length(filter (\str -> if str == '0' || str == '1' then False else True)str) == 0
