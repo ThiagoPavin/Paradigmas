@@ -40,32 +40,15 @@ bin2dec' :: [Int] -> Int
 bin2dec' lista = sum (zipWith (*) lista (map (\x -> 2^x) [(length lista)-1, (length lista)-2..0]))
 
 
+--5. Crie uma função recursiva dec2bin :: Int -> [Int] que receba um número inteiro positivo e retorne sua representação em binário, sob forma de uma lista de 0's e 1's. As funções auxiliares autorizadas aqui são mod, div e reverse. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+dec2bin :: Int -> [Int]
+dec2bin x
+  | x == 1 = [1]
+  | x == 0 = [0]
+  | (x `div` 2) == 0 = (x `mod` 2) : [0]
+  | (x `div` 2) == 1 = (x `mod` 2) : [1]
+  | (x `div` 2) > 1 = reverse((x `mod` 2) : dec2bin (x `div` 2))
 
 
 
