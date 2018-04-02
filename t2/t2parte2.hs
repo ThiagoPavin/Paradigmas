@@ -7,15 +7,14 @@ tamanho str
   | str /= "" = (1 + tamanho(tail str))
 
 verifica :: Char -> Bool
-verifica c
-  | c == '0' || c == '1' = True
-  | c /= '0' || c /= '1' = False
+verifica c = if (c == '0' || c == '1') then True else False
 
 isBin :: String -> Bool
 isBin str
   | str == "" = False
   | tamanho str == 1 = verifica (head str)
-  | tamanho str > 1 = isBin (tail str)
+  | (verifica (head str)) == True = isBin (tail str)
+  | (verifica (head str)) == False = False
 
 --2. Reescreva a função acima de forma não-recursiva. Dê outro nome para ela, por exemplo isBin'. Aqui você pode usar quaisquer funções auxiliares pré-definidas em Haskell.
 
@@ -49,11 +48,22 @@ dec2bin x
   | (x `div` 2) == 0 = (x `mod` 2) : [0]
   | (x `div` 2) == 1 = (x `mod` 2) : [1]
   | (x `div` 2) > 1 = reverse((x `mod` 2) : dec2bin (x `div` 2))
+  
+--6. Implemente uma dessas funções: isHex :: String -> Bool ou hex2dec :: String -> Int ou dec2hex :: Int -> String, que são semelhantes às dos exercícios anteriores, porém com números hexadecimais no lugar de números binários. Aqui está tudo liberado: você pode escolher qual das funções irá implementar, sem restrições sobre como deve fazer isso.
 
+verifica2 :: Char -> Bool
+verifica2 c
+  | c == '0' || c == '1' || c == '2' || c == '3'|| c == '4'|| c == '5'|| c == '6' = True
+  | c == '7' || c == '8' || c == '9' || c == 'A'|| c == 'B'|| c == 'C'|| c == 'D' = True
+  | c == 'E' || c == 'F' = True
+  | c /= '0' || c /= '1' || c /= '2' || c /= '3'|| c /= '4'|| c /= '5'|| c /= '6' = False
+  | c /= '7' || c /= '8' || c /= '9' || c /= 'A'|| c /= 'B'|| c /= 'C'|| c /= 'D' = False
+  | c /= 'E' || c /= 'F' = False
 
-
-
-
-
-
+isHex :: String -> Bool
+isHex str 
+  | str == "" = False
+  | tamanho str == 1 = verifica2 (head str)
+  | (verifica2 (head str)) == True = isHex (tail str)
+  | (verifica2 (head str)) == False = False
 
