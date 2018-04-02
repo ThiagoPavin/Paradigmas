@@ -22,3 +22,15 @@ isBin str
 isBin' :: String -> Bool
 isBin' "" = False
 isBin' str = length(filter (\str -> if str == '0' || str == '1' then False else True)str) == 0
+
+--3. Implemente a função auxBin2Dec de forma recursiva, para que bin2dec funcione corretamente:
+
+auxBin2Dec :: [Int] -> Int -> Int
+auxBin2Dec lista tam
+  | lista == [] = 0
+  | lista /= [] = (head lista) * (2^tam) + auxBin2Dec (tail lista) (tam-1)
+
+bin2dec :: [Int] -> Int
+bin2dec [] = undefined
+bin2dec bits = auxBin2Dec bits ((length bits)-1)
+
