@@ -34,3 +34,43 @@ bin2dec :: [Int] -> Int
 bin2dec [] = undefined
 bin2dec bits = auxBin2Dec bits ((length bits)-1)
 
+--4. Reescreva a função do exercício anterior de forma não-recursiva, usando funções pré-definidas em Haskell. Dê outro nome para a função (por exemplo, bin2dec').
+
+bin2dec' :: [Int] -> Int
+bin2dec' lista = sum (zipWith (*) lista (map (\x -> 2^x) [(length lista)-1, (length lista)-2..0]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
