@@ -33,3 +33,17 @@ countValids str = length(filter(`elem` "abcdefghijklmnopqrstuvxyz")str)
 countChar :: Char -> String -> Int
 countChar c str = length(filter(== c)str)
 
+-- Calcula percentagem: n/m*100
+percent :: Int -> Int -> Float
+percent n m = (fromIntegral n / fromIntegral m)*100
+
+--5. Usando countValids, countChar e percent, defina uma função freqs :: String -> [Float] que retorne as frequências dos caracteres ['a'..'z'] numa dada string. Use list comprehension. A frequência de um caracter é dada pelo percentual deste caracter entre os caracteres válidos da string.
+
+freqs :: String -> [Float]
+freqs str = [(percent (countChar x str) (countValids str)) | x <- ['a'..'z']]
+
+--6. Defina uma função positions :: Float -> [Float] -> [Int], que retorne uma lista de posições de um dado número em uma lista. Considere que as posições comecem em zero. Use a função zip como auxiliar no seu código.
+
+positions :: Float -> [Float] -> [Int]
+positions  f lista = fst(unzip (filter ((==f).snd) (zip [0..] lista)))
+
