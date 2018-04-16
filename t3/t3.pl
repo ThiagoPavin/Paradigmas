@@ -38,3 +38,11 @@ potenciasAUX(N,L) :- C is 2^N, N1 is N-1, potenciasAUX(N1,J), L = [C|J].
 positivos([],[]).
 positivos(L1,L2) :- L1 = [H1|T1],L2 = [H2|T2], H2 is H1, H1>=0, positivos(T1, T2).
 positivos(L1,L2) :- L1 = [_|T1], positivos(T1, L2).
+
+% 8. Considere que L1 e L2 sejam permutações de uma lista de elementos distintos, sem repetições.
+%    Sabendo disso, defina um predicado `mesmaPosicao(A,L1,L2)`
+%    para verificar se um elemento A está na mesma posição nas listas L1 e L2.
+
+mesmaPosicao(A,[A|_],[A|_]).
+mesmaPosicao(A,L1,L2) :- L1 = [_|T1], L2 = [_|T2], mesmaPosicao(A,T1,T2).
+
