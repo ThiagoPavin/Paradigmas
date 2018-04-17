@@ -46,3 +46,19 @@ positivos(L1,L2) :- L1 = [_|T1], positivos(T1, L2).
 mesmaPosicao(A,[A|_],[A|_]).
 mesmaPosicao(A,L1,L2) :- L1 = [_|T1], L2 = [_|T2], mesmaPosicao(A,T1,T2).
 
+%10 - (Adaptado de OBI2006-F1N1) Tem-se N azulejos 10cm x 10cm e, com eles, deve-se montar um conjunto
+%     de quadrados de modo a utilizar todos os azulejos dados, sem sobrepô-los. Inicialmente, deve-se 
+%     montar o maior quadrado possível; então, com os azulejos que sobraram, deve-se montar o maior 
+%     quadrado possível, e assim sucessivamente. Por exemplo, se forem dados 31 azulejos, o conjunto
+%     montado terá 4 quadrados. Para resolver este problema, você deverá definir um predicado azulejos(NA, NQ),
+%     de forma que NQ seja o número de quadrados que se deve montar com NA azulejos. Dica: use os predicados
+%     sqrt e floor, pré-definidos em Prolog.
+  
+azulejos(0, 0).
+azulejos(NA, NQ) :-
+    sqrt(NA,NA1),
+    floor(NA1,NA2),
+    NA3 is NA-(NA2*NA2),
+    azulejos(NA3, A),
+    NQ is A+1.
+
