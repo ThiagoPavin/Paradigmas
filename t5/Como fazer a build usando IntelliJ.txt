@@ -1,0 +1,10 @@
+
+Primeiro -> Abra o IntelliJ
+
+Segundo -> Navegue até a barra de tarefas e clique em File > Open
+
+Terceiro -> Encontre o diretório onde encontra-se o projeto e clique em OK
+
+Quarto -> ctrl + shift + F9 para compilar
+
+Quinto -> ctrl + shift + F10 para executar
