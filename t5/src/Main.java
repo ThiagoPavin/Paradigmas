@@ -1,23 +1,15 @@
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
@@ -47,9 +39,7 @@ public class Main extends Application {
     private VBox vBox1,vBox2;
     private Label labelSpace,labelSpace2;
     private Boolean troca = FALSE;
-    private int NumArestas,NumVertices,NumSobre,Aux = 1;
-
-    private double orgSceneX, orgSceneY, orgTranslateX, orgTranslateY;
+    private int Aux = 1;
 
     private Grafo grafoMenu = new Grafo();
 

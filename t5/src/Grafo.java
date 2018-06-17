@@ -1,9 +1,8 @@
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
-import java.util.Collection;
+
 
 public class Grafo {
     private ArrayList<Circle> vertices;
